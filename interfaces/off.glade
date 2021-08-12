@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkWindow" id="capslock-on">
+  <object class="GtkWindow" id="capslock-off">
     <property name="can_focus">False</property>
     <property name="type">popup</property>
     <property name="window_position">center</property>
@@ -18,7 +18,7 @@
           <object class="GtkImage">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="pixbuf">../../../Downloads/capslock-on .png</property>
+            <property name="pixbuf">images/capslock-off.png</property>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -26,11 +26,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" >
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="ypad">9</property>
-            <property name="label" translatable="yes">Capslock On</property>
+            <property name="label" translatable="yes">Capslock Off</property>
             <property name="justify">center</property>
           </object>
           <packing>

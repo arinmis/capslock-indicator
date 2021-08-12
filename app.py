@@ -7,7 +7,7 @@ from gi.repository import Gtk
 from gi.repository import GLib 
 
 builder = Gtk.Builder()
-builder.add_from_file("glade-files/on.glade")
+builder.add_from_file("interfaces/on.glade")
 
 window = builder.get_object("capslock-on")
 # show caps-lock on pop up 
