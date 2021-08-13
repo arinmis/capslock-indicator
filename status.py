@@ -21,7 +21,5 @@ def get_capslock_status():
             status =  "".join([i for i in status if not i.isdigit()])
             if status == "off":
                 return False
-            else:
-                return True
-            break
+            return True
                 
