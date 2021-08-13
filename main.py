@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/env python3 
 import gi
 
 gi.require_version("Gtk", "3.0")
@@ -21,56 +20,69 @@ is_capslock_on = status.get_capslock_status()
 
 
 
+
 # show caps-lock on pop up 
 # for given time
 # then hide the window
-def show_on(time):
-    print("here")
-    # update status 
-    is_capslock_on = True 
+def show_on():
+    print("show on called")
     # build interfaces
     builder = Gtk.Builder()
     builder.add_from_file("interfaces/on.glade")
     window = builder.get_object("capslock-on")
-    window.show()
-    GLib.timeout_add(time, window.hide);
-    Gtk.main()
-    Gtk.main_quit()
-     
+    return window
 
+     
 
 # show caps-lock off pop up 
 # for given time
-# then hide the window
-def show_off(time):
-    # update status 
-    is_capslock_on = False 
+# then hide the win
+def show_off():
     # build interfaces
     builder = Gtk.Builder()
     builder.add_from_file("interfaces/off.glade")
     window = builder.get_object("capslock-off")
-    window.show()
-    GLib.timeout_add(time, window.hide);
-    Gtk.main()
-    Gtk.main_quit()
+    return window
+
 
 # listen keyboard
 keyboard = Controller()
 
+class MyException(Exception): 
+    pass
+
 
 def on_press(key):
-    # show capslock on
+
+    # define gloabal variable for pynput 
+    global is_capslock_on 
+      
+    # exit keyboard listener
+    window = Gtk.Window()
+    if key == Key.esc:
+        raise MyException(key) 
+    
     if key == Key.caps_lock:
         if not is_capslock_on:
-            print("caps lock is on")
-            show_on(time)
-        else: # show capslock off 
-            print("caps lock is off")
-            show_off(time)
+            window = show_on()
+            is_capslock_on = True
+        else:
+            window = show_off()
+            is_capslock_on = False 
+
+    
+        window.show_all()
+        GLib.timeout_add(time, window.hide);
+        # connect destroy event
+        window.connect("destroy", Gtk.main_quit)
+        # quit window after 1 ms
+        GLib.timeout_add(time, Gtk.main_quit) 
+        Gtk.main()
+
+
      
 
 # Collect events until released
 with Listener(on_press=on_press) as listener:
     listener.join()
 
-# main loop
