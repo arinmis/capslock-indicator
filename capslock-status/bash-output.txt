@@ -1,1 +1,0 @@
-    00: Caps Lock:   on     01: Num Lock:    off    02: Scroll Lock: off

@@ -1,9 +1,9 @@
 import os
 
-bashCommand = "xset q | grep Caps > bash-output.txt" 
+bashCommand = "xset q | grep Caps > capslock_status/bash-output.log" 
 os.system(bashCommand)
 
-file = open("bash-output.txt", "r")
+file = open("capslock_status/bash-output.log", "r")
 # read the line
 line = file.read()
 
@@ -13,7 +13,7 @@ line = "".join(line.split()).lower()
 array = line.split(':')
 
 # return true if capslock on 
-def is_capslock_on():
+def get_capslock_status():
     for index in range(len(array)):
         if index + 1 < len(array) and array[index] == "capslock":
             # filter capslock status
@@ -21,8 +21,5 @@ def is_capslock_on():
             status =  "".join([i for i in status if not i.isdigit()])
             if status == "off":
                 return False
-            else:
-                return True
-            break
+            return True
                 
-print(is_capslock_on())

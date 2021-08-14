@@ -10,7 +10,7 @@ from gi.repository import GLib
 from pynput.keyboard import Key, Listener, Controller
 
 # capslock status
-import status
+from capslock_status import status
 
 # pop up time in ms
 time = 700
@@ -81,7 +81,7 @@ def on_press(key):
 
      
 
-# Collect events until released
+# create keyboard listener 
 with Listener(on_press=on_press) as listener:
     listener.join()
 
