@@ -1,6 +1,5 @@
 # Caps Lock indicator 
-This is an app that shows a pop-up window whenever you press caps lock button to tell caps lock status.
-
+An app that pop-ups a window whenever you press caps lock button to show caps lock status.
 
 
 
