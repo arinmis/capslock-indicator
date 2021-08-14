@@ -13,7 +13,7 @@ from pynput.keyboard import Key, Listener, Controller
 import status
 
 # pop up time in ms
-time = 1500
+time = 700
 
 # get capslock status
 is_capslock_on = status.get_capslock_status()
@@ -25,7 +25,6 @@ is_capslock_on = status.get_capslock_status()
 # for given time
 # then hide the window
 def show_on():
-    print("show on called")
     # build interfaces
     builder = Gtk.Builder()
     builder.add_from_file("interfaces/on.glade")
@@ -70,7 +69,7 @@ def on_press(key):
             window = show_off()
             is_capslock_on = False 
 
-    
+        # show window and kill  
         window.show_all()
         GLib.timeout_add(time, window.hide);
         # connect destroy event
