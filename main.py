@@ -18,9 +18,6 @@ time = 700
 # get capslock status
 is_capslock_on = status.get_capslock_status()
 
-
-
-
 # show caps-lock on pop up 
 # for given time
 # then hide the window
@@ -30,8 +27,6 @@ def show_on():
     builder.add_from_file("interfaces/on.glade")
     window = builder.get_object("capslock-on")
     return window
-
-     
 
 # show caps-lock off pop up 
 # for given time
@@ -43,13 +38,12 @@ def show_off():
     window = builder.get_object("capslock-off")
     return window
 
-
 # listen keyboard
 keyboard = Controller()
 
+# custom exception
 class MyException(Exception): 
     pass
-
 
 def on_press(key):
 
@@ -77,9 +71,6 @@ def on_press(key):
         # quit window after 1 ms
         GLib.timeout_add(time, Gtk.main_quit) 
         Gtk.main()
-
-
-     
 
 # create keyboard listener 
 with Listener(on_press=on_press) as listener:
