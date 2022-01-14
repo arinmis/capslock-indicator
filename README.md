@@ -3,6 +3,8 @@ An app that pop-ups a window to show caps lock status whenever caps lock button 
 ## To run on Ubuntu
 ```
 pip install pynput
+git clone git@github.com:Arinmis/capslock-indicator.git
+cd capslock-indicator
 ./main.py
 ```
 ## Demo
