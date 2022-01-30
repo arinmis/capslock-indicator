@@ -16,7 +16,7 @@ from capslock_status import status
 
 ROOT_DIR = "/opt/capslock-indicator"
 # pop up time in ms
-time = 700
+time = 400
 
 # get capslock status
 is_capslock_on = status.get_capslock_status()
