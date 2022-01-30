@@ -14,9 +14,13 @@ cd capslock-indicator
 ```
 
 ## To run  
-It will be running all the time after you reboot system. If you want to run without reboot for the first time, run this: 
+It will be automatically running all the time after you start the system. If you want to run without reboot for the first time, run this: 
 ```
 python3 /bin/capslock-indicator
+```
+or 
+```
+reboot
 ```
 
 ## Demo
