@@ -1,5 +1,6 @@
 #!/usr/bin/env python3 
 import gi
+import os
 
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
@@ -11,6 +12,9 @@ from pynput.keyboard import Key, Listener, Controller
 
 # capslock status
 from capslock_status import status
+
+
+ROOT_DIR = os.path.dirname(__file__)
 
 # pop up time in ms
 time = 700
@@ -24,7 +28,7 @@ is_capslock_on = status.get_capslock_status()
 def show_on():
     # build interfaces
     builder = Gtk.Builder()
-    builder.add_from_file("interfaces/on.glade")
+    builder.add_from_file(ROOT_DIR + "/interfaces/on.glade")
     window = builder.get_object("capslock-on")
     return window
 
@@ -34,7 +38,7 @@ def show_on():
 def show_off():
     # build interfaces
     builder = Gtk.Builder()
-    builder.add_from_file("interfaces/off.glade")
+    builder.add_from_file(ROOT_DIR + "/interfaces/off.glade")
     window = builder.get_object("capslock-off")
     return window
 

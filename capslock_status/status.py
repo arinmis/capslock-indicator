@@ -1,9 +1,11 @@
 import os
 
-bashCommand = "xset q | grep Caps > capslock_status/bash-output.log" 
-os.system(bashCommand)
+ROOT_DIR = os.path.dirname(__file__)
+data_file_path = os.path.join(ROOT_DIR, 'bash-output.log')
 
-file = open("capslock_status/bash-output.log", "r")
+os.system("xset q | grep Caps > " + data_file_path)
+
+file = open(data_file_path, "r")
 # read the line
 line = file.read()
 
