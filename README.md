@@ -1,4 +1,4 @@
-# Caps Lock indicator 
+# Caps Lock Indicator 
 
 
 A simple Ubuntu tool that pop-ups a window to show caps lock status whenever caps lock button is pressed.
