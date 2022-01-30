@@ -28,7 +28,7 @@ or
 reboot
 ```
 
-## Uninstall 
+## Uninstall(inside root folder of repository)
 ```
 ./uninstall
 ```
