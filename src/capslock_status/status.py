@@ -1,11 +1,10 @@
 import os
 
-ROOT_DIR = os.path.dirname(__file__)
-data_file_path = os.path.join(ROOT_DIR, 'bash-output.log')
+temp_file_path = '/tmp/bash-output.log'
 
-os.system("xset q | grep Caps > " + data_file_path)
+os.system("xset q | grep Caps > " + temp_file_path)
 
-file = open(data_file_path, "r")
+file = open(temp_file_path, "r")
 # read the line
 line = file.read()
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 
-import gi
+import gi 
 import os
 
 gi.require_version("Gtk", "3.0")
@@ -14,8 +14,7 @@ from pynput.keyboard import Key, Listener, Controller
 from capslock_status import status
 
 
-ROOT_DIR = os.path.dirname(__file__)
-
+ROOT_DIR = "/opt/capslock-indicator"
 # pop up time in ms
 time = 700
 
@@ -79,4 +78,3 @@ def on_press(key):
 # create keyboard listener 
 with Listener(on_press=on_press) as listener:
     listener.join()
-

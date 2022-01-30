@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=CapslockIndicator
+Comment=CapslockIndicator
+Icon=gnome-info
+Exec=python3 /bin/capslock-indicator
+Terminal=false
+Type=Application
+Categories=
+
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=0

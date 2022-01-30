@@ -1,0 +1,18 @@
+# root permission
+[ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
+
+# install dependencies
+apt install pip 
+pip install pynput
+
+# copy src to folder  to /opt
+mkdir /opt/capslock-indicator
+cp -r src/* /opt/capslock-indicator 
+
+# Create symbolic link to /bin
+ln -s /opt/capslock-indicator/main.py /bin/capslock-indicator
+
+# register to startup
+cp CapslockIndicator.desktop /home/${SUDO_USER}/.config/autostart/ 
+
+echo capslock indicator setup has been completed

@@ -1,0 +1,13 @@
+# root permission
+[ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
+
+# remove app files 
+rm -rf /opt/capslock-indicator
+
+# remove symbolic link 
+rm -rf /bin/capslock-indicator
+
+# remove startup file 
+rm -rf /home/${SUDO_USER}/.config/autostart/CapslockIndicator.desktop 
+
+echo "caps-lock indicator has been removed"
