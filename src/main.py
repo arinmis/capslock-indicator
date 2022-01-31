@@ -55,8 +55,6 @@ def on_press(key):
       
     # exit keyboard listener
     window = Gtk.Window()
-    if key == Key.esc:
-        raise MyException(key) 
     
     if key == Key.caps_lock:
         if not is_capslock_on:
